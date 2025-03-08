@@ -33,7 +33,7 @@ public class NumArray {
 
 /**
  *
- * out/prefixSum.png
+ * explanationWithImages/prefixSum.png
  *
  * Input
  * ["prefixSumPattern.NumArray", "sumRange", "sumRange", "sumRange"]
