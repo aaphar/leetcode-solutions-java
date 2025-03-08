@@ -2,10 +2,9 @@ package prefixSumPattern;
 
 /**
  * 303. Range Sum Query - Immutable
- * https://leetcode.com/problems/range-sum-query-immutable/
  * <p>
- * Using Prefix Sum Method to solve this problem
- *
+ * https://leetcode.com/problems/range-sum-query-immutable/
+ * </p>
  */
 public class NumArray {
 
