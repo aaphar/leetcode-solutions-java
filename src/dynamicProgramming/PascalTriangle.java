@@ -3,6 +3,9 @@ package dynamicProgramming;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://leetcode.com/problems/pascals-triangle?envType=problem-list-v2&envId=2lhxgujc
+ */
 public class PascalTriangle {
     public static void main(String[] args) {
         List<List<Integer>> nums = generate(5);
