@@ -4,68 +4,32 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <p>
- * https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
- * </p>
- * <p>
- * Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
- * </p>
- * <p>
- * Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.
- * </p>
- * <p>
- * The tests are generated such that there is exactly one solution. You may not use the same element twice.
- * </p>
- * <p>
- * Your solution must use only constant extra space.
- * </p>
+ * https://leetcode.com/problems/two-sum
  */
 public class TwoSum {
-
     public static void main(String[] args) {
-        int[] numbers = {2, 7, 11, 15};
-        int[] result = twoSum(numbers, 9);
+        int[] numbers = {-1, -2, -3, -4, -5};
+        int[] result = twoSum(numbers, -8);
 
         for (int i : result) {
             System.out.println(i);
         }
     }
+    // 1, 2, 4, 5, 7
+    // 12
+    // 7
 
-    public int[] twoSumTwoPointerApproach(int[] numbers, int target) {
-        int l = 0, r = numbers.length - 1;
-
-        while (numbers[l] + numbers[r] != target) {
-            if (numbers[l] + numbers[r] < target) l++;
-            else r--;
-        }
-
-        return new int[] {l+1, r+1};
-    }
-
-
-    public static int[] twoSum(int[] numbers, int target) {
+    public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
-        int[] result = new int[2];
-        for (int i = 0; i < numbers.length; i++) {
-            int remaining = target - numbers[i];
-            if (map.containsKey(remaining)) {
-                result = new int[]{map.get(remaining) + 1, i + 1};
-                return result;
+        for (int i = 0; i < nums.length; i++) {
+            int remaining = target - nums[i];
+            if (!map.containsKey(nums[i])) {
+                map.put(remaining, i);
             } else {
-                map.put(numbers[i], i);
+                int index = map.get(nums[i]);
+                return new int[]{index, i};
             }
         }
-
-        return result;
+        return new int[]{};
     }
 }
-
-/**
- *
- * explanationWithImages/twoPointerTwoSum.jpeg
- *
- * Example 1:
- * <p>
- * Input: numbers = [2,7,11,15], target = 9
- * Output: [1,2]
- */
