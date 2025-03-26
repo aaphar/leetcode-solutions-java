@@ -1,22 +1,13 @@
 package linkedList;
 
-import java.util.HashSet;
-import java.util.Set;
-
-class ListNodeN {
-    int val;
-    ListNodeN next;
-
-    ListNodeN(int x) {
-        val = x;
-        next = null;
-    }
-}
+/**
+ * https://leetcode.com/problems/linked-list-cycle/
+ */
 
 public class HasCycle {
-    public boolean hasCycle(ListNodeN head) {
-        ListNodeN fast = head;
-        ListNodeN slow = head;
+    public boolean hasCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
 
         while (fast != null && fast.next != null) {
             fast = fast.next.next;

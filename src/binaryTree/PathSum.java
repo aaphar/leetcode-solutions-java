@@ -1,5 +1,8 @@
 package binaryTree;
 
+/**
+ * https://leetcode.com/problems/path-sum/description/
+ */
 public class PathSum {
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) {
