@@ -17,22 +17,6 @@ public class FindAllAnagramsInAString {
         }
     }
 
-    public String longestCommonPrefix(String[] strs) {
-        StringBuilder prefix = new StringBuilder();
-        String word = strs[0];
-        int index = 0;
-        for (String str : strs) {
-            if (str.startsWith(word.substring(0, index + 1))) {
-                prefix.append(str.charAt(index));
-                index++;
-            } else {
-                prefix = new StringBuilder(prefix.substring(0, index));
-                index--;
-            }
-        }
-        return prefix.toString();
-    }
-
     public static List<Integer> findAnagrams(String s, String p) {
         List<Integer> result = new ArrayList<>();
         if (s.length() < p.length()) return result;

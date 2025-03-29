@@ -6,15 +6,15 @@ package prefixSumPattern;
  * https://leetcode.com/problems/range-sum-query-immutable/
  * </p>
  */
-public class NumArray {
+public class RangeSumQueryImmutable {
 
     private int[] prefixSums;
 
     public static void main(String[] args) {
-        NumArray numArray = new NumArray(new int[]{-2, 0, 3, -5, 2, -1});
+        RangeSumQueryImmutable rangeSumQueryImmutable = new RangeSumQueryImmutable(new int[]{-2, 0, 3, -5, 2, -1});
     }
 
-    public NumArray(int[] nums) {
+    public RangeSumQueryImmutable(int[] nums) {
         prefixSums = new int[nums.length];
         prefixSums[0] = nums[0];
         for (int i = 1; i < nums.length; i++) {
@@ -32,9 +32,8 @@ public class NumArray {
 
 
 /**
- *
  * explanationWithImages/prefixSum.png
- *
+ * <p>
  * Input
  * ["prefixSumPattern.NumArray", "sumRange", "sumRange", "sumRange"]
  * [[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]]

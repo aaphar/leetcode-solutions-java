@@ -9,31 +9,6 @@ import java.util.Set;
  * https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
  */
 public class LongestSubstringWithoutRepeatingCharacters {
-    public static void main(String[] args) {
-        String s = "abcabcbb";
-        String[] strs = {"flower","flow","flight"};
-        System.out.println(longestCommonPrefix(strs));
-    }
-
-    // TODO
-    public static String longestCommonPrefix(String[] strs) {
-        StringBuilder prefix = new StringBuilder();
-        int index = 0;
-        for (String str : strs) {
-            if (prefix.isEmpty()) {
-                prefix.append(str.charAt(index));
-                index++;
-            } else {
-                if (str.startsWith(prefix.toString())) {
-                    prefix.append(str.charAt(index));
-                    index++;
-                } else {
-                    prefix = new StringBuilder(prefix.substring(0, index-1));
-                }
-            }
-        }
-        return prefix.toString();
-    }
 
     public static int lengthOfLongestSubstring(String s) {
         Set<Character> duplicates = new HashSet<>();
