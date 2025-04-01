@@ -5,8 +5,8 @@ package twoPointersApproach;
  */
 public class MoveZeroes {
     public static void main(String[] args) {
-        int[] nums = {0, 1, 0, 3, 12};
-        moveZeroes(nums);
+        int[] nums = {1, 0, 0, 0, 0, 1};
+        System.out.println(canPlaceFlowers(nums, 2));
     }
 
     /**
@@ -28,6 +28,28 @@ public class MoveZeroes {
             }
             right++;
         }
+    }
+
+    public static boolean canPlaceFlowers(int[] flowerbed, int n) {
+        for (int i = 0; i < flowerbed.length; i++) {
+            if (i >= 1) {
+                if (flowerbed[i] == 0 && flowerbed[i - 1] == 0 && (
+                        (i < flowerbed.length - 1 && flowerbed[i + 1] == 0)
+                                || (i == flowerbed.length - 1)
+                )) {
+                    n--;
+                    flowerbed[i] = 1;
+                    i++;
+                }
+            } else {
+                if (flowerbed[i] == 0 && flowerbed[i + 1] == 0) {
+                    n--;
+                    flowerbed[i] = 1;
+                    i++;
+                }
+            }
+        }
+        return n == 0;
     }
 
     /**

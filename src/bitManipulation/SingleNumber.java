@@ -19,6 +19,21 @@ public class SingleNumber {
         }
         return xor;
     }
+
+
+    int num=0;
+    int pow=0;
+    public int reverseBits(int n) {
+        while(n>=0){
+            int rem=n%10;
+            if(rem==1){
+                num+=Math.pow(2, pow);
+                pow++;
+            }
+            n/=10;
+        }
+        return num;
+    }
 }
 
 /**
