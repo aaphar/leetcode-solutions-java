@@ -49,31 +49,6 @@ public class Main {
         System.out.println(d.getName().equals("Fifi")); // true
     }
 
-
-    public static int gcd(int a, int b) {
-        if (b == 0) {
-            return a;
-        }
-
-        return gcd(b, a % b);
-    }
-
-    public static int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
-
-            if (map.containsKey(complement)) {
-                return new int[]{map.get(complement), i};
-            }
-
-            map.put(nums[i], i);
-        }
-        throw new RuntimeException();
-    }
-
-
     public static void quicksort(int[] arr, int low, int high) {
         if (low < high) {
 
