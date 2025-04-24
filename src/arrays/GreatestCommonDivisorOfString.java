@@ -1,5 +1,8 @@
-package string;
+package arrays;
 
+/**
+ * https://leetcode.com/problems/greatest-common-divisor-of-strings
+ */
 public class GreatestCommonDivisorOfString {
     // Time complexity: O(m + n)
     // Space complexity: O(m + n)
