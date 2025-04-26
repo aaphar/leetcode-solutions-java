@@ -1,9 +1,6 @@
 package string;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * https://leetcode.com/problems/find-the-most-common-response/
