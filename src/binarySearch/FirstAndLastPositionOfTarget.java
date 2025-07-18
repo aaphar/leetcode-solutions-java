@@ -15,29 +15,29 @@ public class FirstAndLastPositionOfTarget {
     }
 
     public static int[] searchRange(int[] nums, int target) {
-        int l = 0;
-        int r = nums.length - 1;
-        int first = -1;
-        int last = -1;
-        while (l <= r) {
-            int mid = l + (r - l) / 2;
-            if (nums[mid] < target) {
-                l = mid + 1;
-            } else if (nums[mid] > target) {
-                r = mid - 1;
-            } else {
+        int start = 0, end = nums.length - 1;
+
+        int first = -1, second = -1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (nums[mid] == target) {
                 first = mid;
-                last = mid;
-                while (first - 1 >= 0 && nums[first - 1] == target) {
+                second = mid;
+                while (first > 0 && nums[first - 1] == target) {
                     first--;
                 }
-                while (last + 1 < nums.length && nums[last + 1] == target) {
-                    last++;
+                while (second < nums.length - 1 && nums[second + 1] == target) {
+                    second++;
                 }
-                return new int[]{first, last};
+                break;
+
+            } else if (nums[mid] > target) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
             }
         }
-
-        return new int[]{last, first};
+        return new int[]{first, second};
     }
 }
