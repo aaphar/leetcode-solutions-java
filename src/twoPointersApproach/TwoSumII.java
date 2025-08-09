@@ -1,7 +1,6 @@
 package twoPointersApproach;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p>
@@ -39,7 +38,7 @@ public class TwoSumII {
             else r--;
         }
 
-        return new int[] {l+1, r+1};
+        return new int[]{l + 1, r + 1};
     }
 
 
@@ -61,9 +60,8 @@ public class TwoSumII {
 }
 
 /**
- *
  * explanationWithImages/twoPointerTwoSum.jpeg
- *
+ * <p>
  * Example 1:
  * <p>
  * Input: numbers = [2,7,11,15], target = 9

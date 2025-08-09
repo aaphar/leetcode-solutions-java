@@ -2,6 +2,7 @@ package sorting.heap;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 /**
  * https://leetcode.com/problems/kth-largest-element-in-an-array/description/
@@ -9,7 +10,7 @@ import java.util.List;
 public class KthLargestElementInAnArray {
     public static void main(String[] args) {
         int[] nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
-        System.out.println(findKthLargest(nums, 4));
+        System.out.println(findKthLargestQueue(nums, 4));
     }
 
     public static int findKthLargest(int[] nums, int k) {
@@ -52,5 +53,22 @@ public class KthLargestElementInAnArray {
 
             heapify(arr, heapSize, largest);
         }
+    }
+
+    // min heap solution
+    public static int findKthLargestQueue(int[] nums, int k) {
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        for (int i = 0; i < k; i++) {
+            minHeap.offer(nums[i]);
+        }
+
+        for (int i = k; i < nums.length; i++) {
+            if (nums[i] > minHeap.peek()) {
+                minHeap.poll();
+                minHeap.offer(nums[i]);
+            }
+        }
+
+        return minHeap.peek();
     }
 }

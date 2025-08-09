@@ -1,6 +1,7 @@
 package slidingWindowFixedSized;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -15,6 +16,29 @@ public class FindAllAnagramsInAString {
         for (Integer integer : integers) {
             System.out.println(integer);
         }
+    }
+
+    public static List<Integer> findAnagramsL(String s, String p) {
+        List<Integer> allAnagrams = new ArrayList<>();
+        if (s.length() < p.length()) {
+            return allAnagrams;
+        }
+        int[] sCount = new int[26];
+        int[] pCount = new int[26];
+        for (int i = 0; i < p.length(); i++) {
+            sCount[s.charAt(i) - 'a']++;
+            pCount[p.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i <= s.length() - p.length(); i++) {
+            if (Arrays.equals(sCount, pCount)) {
+                allAnagrams.add(i);
+            }
+            if (i + p.length() < s.length()) {
+                sCount[s.charAt(i) - 'a']--;
+                sCount[s.charAt(i + p.length()) - 'a']++;
+            }
+        }
+        return allAnagrams;
     }
 
     public static List<Integer> findAnagrams(String s, String p) {

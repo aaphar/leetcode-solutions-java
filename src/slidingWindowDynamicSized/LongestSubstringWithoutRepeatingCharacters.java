@@ -1,14 +1,36 @@
 package slidingWindowDynamicSized;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
  */
 public class LongestSubstringWithoutRepeatingCharacters {
+    public static void main(String[] args) {
+        int[] nums = {2, 3, 1, 2, 4, 3};
+        System.out.println(minSubArrayLen(7, nums));
+
+    }
+
+    public static int minSubArrayLen(int target, int[] nums) {
+        int result = Integer.MAX_VALUE;
+        int left = 0, right = 0;
+        int sum = 0;
+
+        while (left <= right && right < nums.length) {
+            sum += nums[right];
+
+            while (sum >= target) {
+                result = Math.min(result, right - left + 1);
+                sum -= nums[left];
+                left++;
+            }
+            right++;
+
+        }
+
+        return result == Integer.MAX_VALUE ? 0 : result;
+    }
 
     public static int lengthOfLongestSubstring(String s) {
         Set<Character> duplicates = new HashSet<>();
@@ -26,6 +48,22 @@ public class LongestSubstringWithoutRepeatingCharacters {
             }
         }
         return maxLength;
+    }
+
+    public static int lengthOfLongestSubstringConstantSpace(String s) {
+        int n = s.length();
+        int start = 0;
+        int res = 0;
+        int[] lastIndex = new int[128];
+        Arrays.fill(lastIndex, -1);
+        for (int end = 0; end < n; end++) {
+            char current = s.charAt(end);
+            start = Math.max(start, lastIndex[current] + 1);
+            res = Math.max(res, end - start + 1);
+            lastIndex[current] = end;
+        }
+        return res;
+
     }
 
     public static int lengthOfLongestSubstringBetterRunTime(String s) {
