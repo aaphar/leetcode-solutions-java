@@ -10,9 +10,47 @@ public class PermutationInString {
         System.out.println(checkInclusion(s1, s2));
     }
 
+    public static boolean checkInclusion(String s1, String s2) {
+        int window = s1.length();
+        int[] arr1 = new int[26];
+        int[] arr2 = new int[26];
+
+        for (char c : s1.toCharArray()) {
+            arr1[c - 'a']++;
+        }
+
+        int left = 0, right = 0;
+
+        while (right < s2.length()) {
+            char c = s2.charAt(right);
+            arr2[c - 'a']++;
+
+            if (right - left + 1 == window) {
+                if (equalsArr(arr1, arr2)) {
+                    return true;
+                } else {
+                    arr2[s2.charAt(left) - 'a']--;
+                    left++;
+                }
+            }
+
+            right++;
+        }
+
+        return false;
+    }
+
+    private static boolean equalsArr(int[] arr1, int[] arr2) {
+        for (int i = 0; i < 26; i++) {
+            if (arr1[i] != arr2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
     // TODO
 
-    public static boolean checkInclusion(String s1, String s2) {
+    public static boolean checkInclusionS(String s1, String s2) {
         int s1l = s1.length();
         int s2l = s2.length();
 
